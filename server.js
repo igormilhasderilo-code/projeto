@@ -31,6 +31,13 @@ app.post("/login", async (req, res) => {
   res.send("Login salvo com sucesso!");
 });
 
+
+app.get("/logins", async (req, res) => {
+  const rows = await db.all("SELECT * FROM logins");
+  res.json(rows);
+});
+
+
 app.listen(PORT, () => {
   console.log(`Servidor rodando na porta ${PORT}`);
 });
